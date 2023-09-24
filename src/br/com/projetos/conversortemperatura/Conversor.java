@@ -1,4 +1,4 @@
-package br.com.projetos;
+package br.com.projetos.conversortemperatura;
 
 import java.text.DecimalFormat;
 
