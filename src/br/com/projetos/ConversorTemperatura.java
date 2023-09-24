@@ -5,6 +5,7 @@
  */
 package br.com.projetos;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -15,13 +16,26 @@ public class ConversorTemperatura {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-     
-        System.out.println("Digite a temperatura em Celsius: ");
-        
-        double celsius = scan.nextDouble();
-        double fahrenheit = (celsius * 9/5) + 32;
-        
-        System.out.println( celsius + " ºC equivale a " +  fahrenheit + "ºF");
+        DecimalFormat df = new DecimalFormat("#.##");
+
+        System.out.println("Escolha a escala (C)Celsius ou (F) Fahrenheit: ");
+        String escalaTemperatura = scan.next().toLowerCase();
+
+        System.out.println("Digite a temperatura: ");
+        double numTemperatura = scan.nextDouble();
+
+        if (escalaTemperatura.equals("c")) {
+
+            double fahrenheit = (numTemperatura * 9 / 5) + 32;
+
+            System.out.println("A conversao de " + numTemperatura + "ºC equivale a " + df.format(fahrenheit)  + "ºF");
+
+        } else if (escalaTemperatura.equals("f")) {
+
+            Double celsius = (numTemperatura - 32) * 5 / 9;
+            System.out.println("A conversao de " + numTemperatura + "ºF equivale a " + df.format(celsius) + "ºC");
+        }
+
     }
-    
+
 }
